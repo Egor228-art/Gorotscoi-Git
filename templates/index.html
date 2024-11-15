@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <!-- Подключение локального Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+</head>
+<body>
+    <!-- Подключение локального Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Приветствие -->
+    <div class="image-container">
+        <img height="100%" width="100%" src="{{ url_for('static', filename='Фотки зданий/ВеликийНовгород.png') }}" class="img-top-center" alt="ВеликийНовгород.png">
+        <div class="text-center">
+            <h1 class="lh-base">Привет! И добро пожаловать в Городской Гид по Великому Новгороду.<br>Что вас интересует?</h1>
+        </div>
+    </div>
+
+    <!-- Иконки первый ряд -->
+    <div class="container">
+        <div class="card" onclick="window.location.href='/Restaurant';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаРесторана.png') }}" class="img-top" alt="Иконка Ресторан.png">
+        </div>
+        <div class="card" onclick="window.location.href='/Coffee';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКофе.png') }}" class="img-top" alt="Иконка Кофе.png">
+        </div>
+        <div class="card" onclick="window.location.href='/shops';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаМагазина.png') }}" class="img-top" alt="Иконка Магазина.png">
+        </div>
+    </div>
+
+    <!-- Иконки второй ряд -->
+    <div class="container1">
+        <div class="card" onclick="window.location.href='/museums';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаМузеи.png') }}" class="img-top" alt="Иконка Музея.png">
+        </div>
+        <div class="card" onclick="window.location.href='/theatre';"><img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаТеатр.png') }}" class="img-top" alt="Иконка Театра.png">
+            </div>
+        <div class="card" onclick="window.location.href='/library';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкиБиблиотеки.png') }}" class="img-top" alt="Иконка Библиотеки.png">
+        </div>
+    </div>
+
+    <!-- Иконки третий ряд -->
+    <div class="container2">
+        <div class="card" onclick="window.location.href='/park';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаПарка.png') }}" class="img-top" alt="Иконка Парка.png">
+        </div>
+        <div class="card" onclick="window.location.href='/cinema';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКинотеатр.png') }}" class="img-top" alt="Иконка Кинотеатр.png">
+        </div>
+        <div class="card" onclick="window.location.href='/sport';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаСпортплощадка.png') }}" class="img-top" alt="Иконка Спортплощадка.png">
+        </div>
+    </div>
+
+    <!-- Иконки третий ряд -->
+    <div class="container3">
+        <div class="card" onclick="window.location.href='/culture';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКультура.png') }}" class="img-top" alt="Иконка Культура.png">
+        </div>
+        <div class="card" onclick="window.location.href='/Church';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаЦеркви.png') }}" class="img-top" alt="Иконка Церкви.png">
+        </div>
+        <div class="card" onclick="window.location.href='/hotels';">
+            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкиГостиницы.png') }}" class="img-top" alt="Иконки Гостиницы.png">
+        </div>
+    </div>
+</body>
+</html>

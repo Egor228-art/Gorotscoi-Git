@@ -1,0 +1,68 @@
+.logo {
+    margin-left: 75px;
+    cursor: pointer;
+}
+
+.img-logo {
+    position: relative;
+    left: -25px;
+}
+
+.text-logo {
+    position: relative;
+    left: -5px;
+    font-size: 30px;
+    font-family: SFMono-Regular;
+}
+
+.bd-subnavbar py-2 {
+    border: 1px solid #ced4da;
+}
+
+.algolia-autocomplete {
+    position: relative;
+    display: inline-block;
+    direction: ltr;
+    left: 25px;
+}
+
+.dropdown {
+    margin-left: auto;
+    margin-right: 300px;
+}
+
+.form-control ds-input {
+    position: relative;
+    vertical-align: top;
+}
+
+.container
+    top: -50px;
+}
+
+.img-top {
+    position: relative;
+    transition: filter 0.3s;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.card-body {
+    padding: 0;
+    margin-left: 280px;
+    margin-top: -250px;
+}
+
+.card-text {
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.card {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.card:hover .img-top {
+    filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
+}

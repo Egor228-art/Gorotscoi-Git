@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Coffee.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo" onclick="window.location.href='/';">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+    <!-- Иконки список -->
+    <div class="container">
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Хлебник.png') }}" alt="Кафе Хлебник.png">
+            <div class="card-body">
+                <h4 class="card-title">Хлебник</h4>
+                <p class="card-text">Кафе «Хлебник» — это уютное место, где можно позавтракать, пообедать или просто перекусить.<br><br><br><br>+7 (995) 233-31-22 ㅤㅤㅤㅤㅤул. Фёдоровский Ручей, 2/13, район Торговая сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Время Ч.png') }}" alt="Кафе Время Ч.png">
+            <div class="card-body">
+                <h4 class="card-title">Время Ч</h4>
+                <p class="card-text">Кафе «Время Ч» — это место, где вы можете насладиться разнообразным меню, включающим в себя авторские блюда и классические рецепты. Интерьер кафе стильно оформлен и создает приятный фон для вечера, а спокойная музыка дополняет общую атмосферу.<br><br>+7 (8162) 99-80-40 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤЩитная ул., 7/31, район Торговая сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/МамаСушиПицца.png') }}" alt="Кафе МамаСушиПицца.png">
+            <div class="card-body">
+                <h4 class="card-title">МамаСушиПицца</h4>
+                <p class="card-text">Кафе «МамаСушиПицца» — Нет описания.<br><br><br><br><br>+7 (991) 493-10-09 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 43</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Ромитто.png') }}" alt="Кафе Ромитто.png">
+            <div class="card-body">
+                <h4 class="card-title">Ромитто</h4>
+                <p class="card-text">«Ромитто» — это заведение быстрого питания, где можно попробовать разнообразные блюда, такие как шаурма, гамбургеры, пельмени, лапша и корн-доги.<br><br><br><br>+7 (8162) 70-06-00 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 37</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Колобок.png') }}" alt="Кафе Колобок.png">
+            <div class="card-body">
+                <h4 class="card-title">Колобок</h4>
+                <p class="card-text">Кафе «Колобок» — это место, где можно вкусно и недорого поесть.<br><br><br><br><br>+7 (8162) 63-82-04 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБольшая Московская ул., 28</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

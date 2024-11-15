@@ -1,0 +1,108 @@
+.img-logo {
+    position: relative;
+    left: -250px;
+}
+
+.text-logo {
+    position: relative;
+    left: -230px;
+    font-size: 30px;
+    font-family: SFMono-Regular;
+}
+
+.algolia-autocomplete {
+    position: relative;
+    left: -200px;
+}
+
+.bd-subnavbar py-2 {
+    border: 1px solid #ced4da;
+}
+
+.algolia-autocomplete {
+    position: relative;
+    display: inline-block;
+    direction: ltr;
+}
+
+.form-control ds-input {
+    position: relative;
+    vertical-align: top;
+}
+
+.img-top-center {
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    height: 900px;
+    width: 100%;
+}
+
+.text-center {
+    position: absolute; /* Абсолютное позиционирование текста */
+    top: 400px; /* Фиксированное положение текста по вертикали */
+    left: 20%; /* Центрирование по горизонтали */
+    transform: translateX(-12%);
+    z-index: 2;
+}
+
+.image-container {
+    position: relative; /* Позволяет использовать абсолютное позиционирование для текста */
+    width: 100%; /* Ширина контейнера */
+    max-width: 1900px; /* Максимальная ширина контейнера */
+    margin: auto;
+}
+
+.lh-base {
+    font-family: Georgia;
+}
+
+.container {
+    margin-top: 900px;
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    gap: 45px;
+}
+
+.container1 {
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    gap: 45px;
+}
+
+.container2 {
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    gap: 45px;
+}
+
+.container3 {
+    margin-bottom: 60px;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    gap: 45px;
+}
+
+.card {
+    width: 18rem;
+    border-radius: 10px;
+    border-color: #a8adb2;
+    cursor: pointer;
+}
+
+.text-icon {
+    margin-top: -15px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.img-top:hover {
+    transform: translateY(-5px); /* Поднимает изображение вверх при наведении */
+}
