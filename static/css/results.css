@@ -1,10 +1,12 @@
 .logo {
-    margin-left: 75px;
+    margin-top: 10px;
+    margin-left: -1100px;
     cursor: pointer;
 }
 
 .img-logo {
     position: relative;
+    margin-bottom: 10px;
     left: -25px;
 }
 
@@ -17,7 +19,7 @@
 
 .bd-subnavbar {
     position: fixed; /* Фиксируем навигацию */
-    top: 0; /* Устанавливаем на верх страницы */
+    top: 40px; /* Устанавливаем на верх страницы */
     left: 0; /* Устанавливаем на левый край */
     right: 0; /* Устанавливаем на правый край */
     z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
@@ -26,7 +28,19 @@
 }
 
 body {
-    padding-top: 70px; /* Отступ, равный высоте шапки */
+    padding-top: 30px; /* Отступ, равный высоте шапки */
+}
+
+.container-xxl {
+    justify-content: center;
+    display: flex;
+    margin-top: -50px;
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #ced4da;
 }
 
 .algolia-autocomplete {
@@ -37,8 +51,7 @@ body {
 }
 
 .dropdown {
-    margin-left: auto;
-    margin-right: 300px;
+    right: -870px;
 }
 
 .form-control ds-input {
@@ -71,8 +84,17 @@ body {
 
 .card {
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .card:hover .img-top {
     filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
+}
+
+.card-title {
+    margin-top: 50px;
+}
+
+.card-title {
+    margin-top: -50px;
 }

@@ -19,9 +19,9 @@
                 <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
                 <span class="text-logo">Городской Гид</span>
             </div>
-            <form class="bd-search position-relative me-auto">
+            <form class="bd-search position-relative me-auto" action="/search" method="POST">
                 <span class="algolia-autocomplete">
-                    <input class="form-control ds-input" id="search-input" placeholder="Поиск в документации..." aria-autocomplete="list">
+                    <input class="form-control ds-input" id="search-input" name="query" placeholder="Поиск в документации..." aria-autocomplete="list">
                 </span>
             </form>
             <div class="dropdown" >
@@ -56,7 +56,7 @@
         <div class="card" onclick="window.location.href='/Coffee';">
             <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКофе.png') }}" class="img-top" alt="Иконка Кофе.png">
         </div>
-        <div class="card" onclick="window.location.href='/shops';">
+        <div class="card" onclick="window.location.href='/shop';">
             <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаМагазина.png') }}" class="img-top" alt="Иконка Магазина.png">
         </div>
     </div>

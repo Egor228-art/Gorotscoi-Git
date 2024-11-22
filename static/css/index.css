@@ -15,8 +15,18 @@
     left: -200px;
 }
 
-.bd-subnavbar py-2 {
-    border: 1px solid #ced4da;
+.bd-subnavbar {
+    position: fixed; /* Фиксируем навигацию */
+    top: 0; /* Устанавливаем на верх страницы */
+    left: 0; /* Устанавливаем на левый край */
+    right: 0; /* Устанавливаем на правый край */
+    z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
+    background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
+    border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
+}
+
+body {
+    padding-top: 60px; /* Отступ, равный высоте шапки */
 }
 
 .algolia-autocomplete {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+            <div class="container-xxl d-flex align-items-md-center">
+                <div class="logo" onclick="window.location.href='/';">
+                    <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                    <span class="text-logo">Городской Гид</span>
+                </div>
+                <form class="bd-search position-relative me-auto" action="/search" method="POST">
+                    <span class="algolia-autocomplete">
+                        <input class="form-control ds-input" id="search-input" placeholder="Поиск в документации..." name="query" aria-autocomplete="list" required value="{{ query }}">
+                    </span>
+                </form>
+                <div class="dropdown" >
+                    <button class="btn btn-bd-light" style="border: 1px solid #ced4da; background: white;">
+                        <span class="d-none d-lg-inline">Вход</span>
+                    </button>
+                    <button class="btn btn-bd-light" style="border: 1px solid #ced4da; background: white;">
+                        <span class="d-none d-lg-inline">Регистрация</span>
+                    </button>
+                </div>
+            </div>
+    </nav>
+</head>
+<body>
+    <h3 class="card-title-txt" style="text-align: center;">Вот что мы нашли по запросу {{ query }}</h3>
+    <div class="results">
+        {% if results %}
+            {% for restaurant in results %}
+                <div class="container">
+                    <div class="card">
+                        <img class="img-top" style="position: relative; transition: filter 0.3s; border-radius: 15px; margin: 10px;" width="250px" height="250px" src="{{ url_for('static', filename=restaurant.image) }}" alt="{{ restaurant.name }}">
+                        <div class="card-body">
+                            <h4 class="card-title-">{{ restaurant.name }}</h4>
+                            <p class="card-text">{{ restaurant.description }}<br><br>{{ restaurant.contact }}<br>{{ restaurant.contact2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="card-text" style="text-align: center;">Ничего не найдено.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
