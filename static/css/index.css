@@ -116,3 +116,100 @@ body {
 .img-top:hover {
     transform: translateY(-5px); /* Поднимает изображение вверх при наведении */
 }
+
+#overlay {
+    display: none; /* Скрываем фон по умолчанию */
+    position: fixed; /* Фиксируем позицию фона */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+    z-index: 999; /* Поднимаем фон над остальным контентом */
+}
+
+#content_window {
+    animation: ani 1.5s forwards;
+    display: none; /* Скрываем окно по умолчанию */
+    position: fixed; /* Фиксируем позицию окна */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ced4da;
+    padding: 20px;
+    z-index: 1000; /* Окно выше фона */
+    width: 300px; /* Устанавливаем ширину формы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+}
+
+#content_window.show {
+    display: block; /* Показываем окно */
+    transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
+}
+
+#content_window2 {
+    animation: ani 1.5s forwards;
+    display: none; /* Скрываем окно по умолчанию */
+    position: fixed; /* Фиксируем позицию окна */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ced4da;
+    padding: 20px;
+    z-index: 1000; /* Окно выше фона */
+    width: 300px; /* Устанавливаем ширину формы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+}
+
+#content_window2.show {
+    display: block; /* Показываем окно */
+    transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
+}
+
+.btnX {
+    margin-left: 240px;
+    top: 15px;
+    position: absolute;
+    background-color: transparent; /* Прозрачный фон */
+    color: #dc3545; /* Цвет текста (красный) */
+    border: none; /* Убираем границу */
+    font-size: 40px; /* Размер шрифта */
+    cursor: pointer; /* Указываем, что это кнопка */
+}
+
+/* Стили при наведении */
+.btnX:hover {
+    background-color: transparent; /* Прозрачный фон при наведении */
+    color: #c82333; /* Цвет текста при наведении */
+}
+
+/* Стили при нажатии */
+.btnX:active {
+    background-color: transparent; /* Прозрачный фон при нажатии */
+    color: #c82333; /* Цвет текста при нажатии */
+}
+
+/* Убираем обводку при фокусе */
+.btnX:focus {
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+.btnB {
+    margin-left: 100px;
+    border-radius: 10px;
+    border-color: #0B63F6;
+    color: white;
+    transition: .2s linear;
+    background: #0B63F6;
+}
+
+@keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
