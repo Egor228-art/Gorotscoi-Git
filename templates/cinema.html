@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение локального Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cinema.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo" onclick="window.location.href='/';">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto" action="/search" method="POST">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" name="query" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+<div class="container" style="margin-top: 50px;">
+  <div class="card">
+    <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Мираж Синема.png') }}" alt="Кинотеатр «Мираж Синема».png">
+    <div class="card-body">
+      <h4 class="card-title">Мираж Синема</h4>
+      <p class="card-text">«Мираж Синема» — современный кинотеатр с комфортными залами, предлагающий широкий выбор фильмов и высокое качество звука и изображения. Здесь можно насладиться попкорном и напитками во время просмотра.<br><br>+7 (812) 677-60-60 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 29 • этаж 3</p>
+    </div>
+  </div>
+    <div class="card">
+    <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Новгород.png') }}" alt="Кинотеатр «Новгород».png">
+    <div class="card-body">
+      <h4 class="card-title">Новгород</h4>
+      <p class="card-text">Кинотеатр «Новгород» — это уютный кинотеатр, предлагающий разнообразные фильмы, включая новинки и классические картины. Он оснащён современным оборудованием для комфортного просмотра и предоставляет услуги по продаже закусок и напитков.<br><br>+7 (8162) 70-00-53 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 9 • этаж 1</p>
+    </div>
+  </div>
+    <div class="card">
+    <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Мультимедийный центр Россия.png') }}" alt="Кинотеатр «Мультимедийный центр Россия».png">
+    <div class="card-body">
+      <h4 class="card-title">Мультимедийный центр Россия</h4>
+      <p class="card-text">Мультимедийный центр «Россия» — современное заведение, предлагающее широкий выбор фильмов, выставок и культурных мероприятий. Оснащённый новейшими технологиями, центр обеспечивает комфортный просмотр и уникальный опыт для зрителей.<br><br>+7 (8162) 77-73-36 ㅤㅤㅤㅤㅤㅤㅤㅤул. Черняховского, 66, район Софийская сторона</p>
+    </div>
+  </div>
+    <div class="card">
+    <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Орион.png') }}" alt="Планетарий «Орион».png">
+    <div class="card-body">
+      <h4 class="card-title">Планетарий Орион</h4>
+      <p class="card-text">Планетарий «Орион» — это место, где можно посмотреть познавательные фильмы о космосе и солнечной системе, а также поучаствовать в мастер-классах.<br><br>+7 (908) 225-20-20 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБольшая Санкт-Петербургская ул., 39</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

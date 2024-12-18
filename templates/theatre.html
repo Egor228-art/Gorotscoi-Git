@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение локального Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theatre.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo" onclick="window.location.href='/';">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto" action="/search" method="POST">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" name="query" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+      <div class="container" style="margin-top: 50px;">
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Достоевского.png') }}" alt="Театр «Достоевского».png">
+                <div class="card-body">
+                      <h4 class="card-title">Новгородский областной академический театр драмы имени Достоевского</h4>
+                      <p class="card-text">Новгородский театр драмы носит имя Ф. М. Достоевского с 1997 года. Главные и знаковые спектакли в театре поставлены на основе романов писателя.<br><br>+7 (8162) 77-27-77 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤВеликая ул., 14</p>
+                </div>
+            </div>
+            <div class="card">
+                  <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Малый.png') }}" alt="Театр «Малый».png">
+                <div class="card-body">
+                  <h4 class="card-title">Театр для детей и молодежи Малый</h4>
+                  <p class="card-text">Театр для детей и молодежи «Малый» — это место, где каждый найдет что-то интересное для себя. В репертуаре театра есть спектакли как для детей, так и для взрослых, а также постановки, которые затрагивают важные темы, такие как взросление и взаимоотношения людей с окружающим миром.<br><br>+7 (8162) 65-54-53 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤпросп. Мира, 32А, Западный район</p>
+                </div>
+            </div>
+      </div>
+</body>
+</html>

@@ -55,7 +55,7 @@
                         <span class="btnX" onclick="hideWindow1()">x</span>
                         <div class="form-group">
                             <label for="username1">Логин</label>
-                            <input type="text" class="form-control" id="username1" name="username" placeholder="Введите логин" required>
+                            <input type="text" class="user-info" id="username1" name="username" placeholder="Введите логин" required>
                         </div>
                         <div class="form-group">
                             <label for="password1">Пароль</label>
@@ -67,10 +67,11 @@
                         </div>
                         <button type="submit" class="btnB">Зарегистрироваться</button>
                     </form>
-                    <div id="success-message" style="display: none;">
-                        <h2>Зарегистрировано! Вы успешно зарегистрировались.</h2>
-                        <img id="avatar" src="static/avatar.png" alt="Аватар" style="display:none;">
-                        <span id="username-display"></span>
+
+                    <!-- Элемент для отображения аватарки -->
+                    <div id="avatarContainer" style="display: none;">
+                        <h2>Добро пожаловать, <span id="welcomeUser "></span>!</h2>
+                        <img id="avatar" filename='Фотки зданий/avatar.png' alt="Avatar" style="width: 100px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -103,26 +104,37 @@
         windowElement.classList.remove('show');
     }
 
-        $(document).ready(function() {
-            $('#regForm').on('submit', function(event) {
-                event.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: '/',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        if (response.success) {
-                            $('.user-info span').text(response.username);
-                        } else {
-                            alert(response.message);
-                        }
-                    },
-                    error: function() {
-                        alert("Произошла ошибка при отправке данных.");
-                    }
-                });
-            });
+// Обработчик для формы регистрации
+    document.getElementById('regForm').onsubmit = function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы
+
+        // Получаем данные из формы
+        const username = document.getElementById('username1').value;
+        const password = document.getElementById('password1').value;
+        const confirmPassword = document.getElementById('password2').value;
+
+        // Отправляем данные на сервер
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'username': username,
+                'password': password,
+                'confirm_password': confirmPassword
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('welcomeUser ').innerText = data.username;
+                document.getElementById('avatarContainer').style.display = 'block'; // Показываем аватарку
+            } else {
+                alert(data.message); // Показываем сообщение об ошибке
+            }
         });
+    };
 </script>
 </head>
 <body>
@@ -170,17 +182,14 @@
         <div class="card" onclick="window.location.href='/cinema';">
             <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКинотеатр.png') }}" class="img-top" alt="Иконка Кинотеатр.png">
         </div>
-        <div class="card" onclick="window.location.href='/sport';">
+        <div class="card" onclick="window.location.href='/sports';">
             <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаСпортплощадка.png') }}" class="img-top" alt="Иконка Спортплощадка.png">
         </div>
     </div>
 
     <!-- Иконки третий ряд -->
     <div class="container3">
-        <div class="card" onclick="window.location.href='/culture';">
-            <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаКультура.png') }}" class="img-top" alt="Иконка Культура.png">
-        </div>
-        <div class="card" onclick="window.location.href='/Church';">
+        <div class="card" onclick="window.location.href='/church';">
             <img vspace="10px" hspace="10px" src="{{ url_for('static', filename='Фотки зданий/ИконкаЦеркви.png') }}" class="img-top" alt="Иконка Церкви.png">
         </div>
         <div class="card" onclick="window.location.href='/hotels';">

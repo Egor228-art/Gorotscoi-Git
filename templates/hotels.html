@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение локального Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/church.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo" onclick="window.location.href='/';">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto" action="/search" method="POST">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" name="query" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+<div class="container" style="margin-top: 50px;">
+    <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Вишневый Рояль.png') }}" alt="Гостиница Вишневый Рояль.png">
+                <div class="card-body">
+                    <h4 class="card-title">Вишневый Рояль</h4>
+                    <p class="card-text">Отель «Вишневый Рояль» расположен в тихом историческом районе Великого Новгорода, в 10 минутах ходьбы от набережной реки Волхов и в 15 минутах ходьбы от Новгородского Кремля.<br><br>+7 (8162) 20-04-75 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤСлавная ул., 20, район Торговая сторона</p>
+                </div>
+            </div>
+    <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Карелинн.png') }}" alt="Гостиница Карелинн.png">
+                <div class="card-body">
+                    <h4 class="card-title">Карелинн</h4>
+                    <p class="card-text">Гостиница «Карелинн» расположена в центре Великого Новгорода, в 7 минутах ходьбы от Кремля. Гостям предлагается проживание в небольших, но уютных номерах с современным дизайном и всем необходимым для комфортного отдыха.<br><br>+7 (911) 612-30-30<br>Большая Санкт-Петербургская ул., 21 этаж 2</p>
+                </div>
+            </div>
+</div>
+</body>
+</html>

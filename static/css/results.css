@@ -1,6 +1,6 @@
 .logo {
-    margin-top: 10px;
-    margin-left: -1100px;
+    margin-top: 15px;
+    margin-left: -1095px;
     cursor: pointer;
 }
 
@@ -12,7 +12,8 @@
 
 .text-logo {
     position: relative;
-    left: -5px;
+    left: -5.6px;
+    top: -5px;
     font-size: 30px;
     font-family: SFMono-Regular;
 }
@@ -39,7 +40,7 @@ body {
     z-index: 1000;
     background: white;
     width: 100%;
-    height: 70px;
+    height: 73px;
     border: 1px solid #ced4da;
 }
 

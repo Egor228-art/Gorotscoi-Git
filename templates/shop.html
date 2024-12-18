@@ -6,10 +6,12 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Подключение CSS файла -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
     <!-- Украшаем вкладку вашим логотипом -->
     <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
-    <title>{{title}}</title>
 
     <!-- Шапка -->
     <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
@@ -35,6 +37,176 @@
     </nav>
 </head>
 <body>
-
+    <!-- Иконки список -->
+    <div class="container" style="margin-top: 50px;">
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Гипер Лента.png') }}" alt="Магазин Гипер Лента.png">
+            <div class="card-body">
+                <h4 class="card-title">Гипер Лента</h4>
+                <p class="card-text">«Гипер Лента» — российская сеть гипермаркетов с широким ассортиментом товаров: продукты, бытовая химия, электроника. Предлагает акции, скидки и программы лояльности для удобного шопинга.<br><br>8 (800) 700-41-11 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤВеликая ул., 22А, Великий Новгород</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/ВкусВилл.png') }}" alt="Магазин ВкусВилл.png">
+            <div class="card-body">
+                <h4 class="card-title">ВкусВилл</h4>
+                <p class="card-text">«ВкусВилл» — российская сеть магазинов, специализирующаяся на продаже натуральных продуктов питания и товаров для здоровья.<br><br>8 (800) 550-86-02 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤПсковская ул., 32</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Дикси.png') }}" alt="Магазин Дикси.png">
+            <div class="card-body">
+                <h4 class="card-title">Дикси</h4>
+                <p class="card-text">«Дикси» — российская сеть супермаркетов, предлагающая разнообразие продуктов питания, бытовых товаров и товаров для дома. Сеть известна своими доступными ценами и регулярными акциями для покупателей.<br><br>8 (800) 550-86-02 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤПсковская ул., 32</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Дикси1.png') }}" alt="Магазин Дикси.png">
+            <div class="card-body">
+                <h4 class="card-title">Дикси</h4>
+                <p class="card-text">«Дикси» — российская сеть супермаркетов, предлагающая разнообразие продуктов питания, бытовых товаров и товаров для дома. Сеть известна своими доступными ценами и регулярными акциями для покупателей.<br><br>8 (800) 101-10-01 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 8/1</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Дикси2.png') }}" alt="Магазин Дикси.png">
+            <div class="card-body">
+                <h4 class="card-title">Дикси</h4>
+                <p class="card-text">«Дикси» — российская сеть супермаркетов, предлагающая разнообразие продуктов питания, бытовых товаров и товаров для дома. Сеть известна своими доступными ценами и регулярными акциями для покупателей.<br><br>8 (800) 101-10-01 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤпросп. Мира, 40, корп. 1, Западный район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Перекрёсток.png') }}" alt="Магазин Перекрёсток.png">
+            <div class="card-body">
+                <h4 class="card-title">Перекрёсток</h4>
+                <p class="card-text">«Перекрёсток» — российская сеть супермаркетов, предлагающая широкий ассортимент продуктов питания, напитков и товаров для дома. Сеть известна высоким качеством товаров, удобным расположением магазинов и программами лояльности для постоянных клиентов.<br><br>8 (800) 200-95-55 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Ломоносова, 29 • ТЦ Мармелад</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Магнит.png') }}" alt="Магазин Магнит.png">
+            <div class="card-body">
+                <h4 class="card-title">Магнит</h4>
+                <p class="card-text">«Магнит» — крупная российская розничная сеть, предлагающая разнообразные продукты питания и товары для дома. Известен доступными ценами, акциями и программами лояльности. Сеть включает супермаркеты и магазины формата "у дома".<br><br>8 (800) 200-90-02<br>ул. Фёдоровский Ручей, 2Г, район Торговая сторона этаж 1</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Магнит1.png') }}" alt="Магазин Магнит.png">
+            <div class="card-body">
+                <h4 class="card-title">Магнит</h4>
+                <p class="card-text">«Магнит» — крупная российская розничная сеть, предлагающая разнообразные продукты питания и товары для дома. Известен доступными ценами, акциями и программами лояльности. Сеть включает супермаркеты и магазины формата "у дома".<br><br>8 (800) 200-90-02<br>ул. Мерецкова-Волосова, 7/1, район Софийская сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Магнит2.png') }}" alt="Магазин Магнит.png">
+            <div class="card-body">
+                <h4 class="card-title">Магнит</h4>
+                <p class="card-text">«Магнит» — крупная российская розничная сеть, предлагающая разнообразные продукты питания и товары для дома. Известен доступными ценами, акциями и программами лояльности. Сеть включает супермаркеты и магазины формата "у дома".<br><br>8 (800) 200-90-02 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБатецкая ул., 22, Псковский район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Пятёрочка.png') }}" alt="Магазин Пятёрочка.png">
+            <div class="card-body">
+                <h4 class="card-title">Пятёрочка</h4>
+                <p class="card-text">«Пятёрочка» — российская сеть магазинов формата "у дома", предлагающая доступные продукты питания и товары повседневного спроса. Известна акциями и удобным расположением, что делает покупки быстрыми и комфортными.<br><br>8 (800) 555-55-05 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤВоскресенский бул., 4, Привокзальный район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Пятёрочка1.png') }}" alt="Магазин Пятёрочка.png">
+            <div class="card-body">
+                <h4 class="card-title">Пятёрочка</h4>
+                <p class="card-text">«Пятёрочка» — российская сеть магазинов формата "у дома", предлагающая доступные продукты питания и товары повседневного спроса. Известна акциями и удобным расположением, что делает покупки быстрыми и комфортными.<br><br>8 (800) 555-55-05 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Фёдоровский Ручей, 2/13</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов формата "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением, частыми акциями и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБольшая Санкт-Петербургская ул., 19</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень1.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов формата "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением, частыми акциями и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤШелонская ул., 30, Псковский район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень2.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов формата "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением, частыми акциями и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Зелинского, 21</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень3.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50<br>ул. Фёдоровский Ручей, 27, район Торговая сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень4.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБольшая Московская ул., 66</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Осень5.png') }}" alt="Магазин Осень.png">
+            <div class="card-body">
+                <h4 class="card-title">Осень</h4>
+                <p class="card-text">«Осень» — российская сеть магазинов "у дома", предлагающая широкий ассортимент доступных продуктов и товаров повседневного спроса. Она известна удобным расположением и низкими ценами, что делает её популярной среди покупателей.<br><br>+7 (8162) 68-50-50 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤБольшая Московская ул., 126</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Верный.png') }}" alt="Магазин Верный.png">
+            <div class="card-body">
+                <h4 class="card-title">Верный</h4>
+                <p class="card-text">«Верный» — российская сеть магазинов "у дома", предлагающая широкий ассортимент продуктов и товаров повседневного спроса. Она известна низкими ценами и удобным расположением, что делает её популярной среди покупателей.<br><br>8 (800) 250-66-48 ㅤㅤㅤㅤㅤㅤㅤㅤㅤСтратилатовская ул., 12, район Софийская сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Верный1.png') }}" alt="Магазин Верный.png">
+            <div class="card-body">
+                <h4 class="card-title">Верный</h4>
+                <p class="card-text">«Верный» — российская сеть магазинов "у дома", предлагающая широкий ассортимент продуктов и товаров повседневного спроса. Она известна низкими ценами и удобным расположением, что делает её популярной среди покупателей.<br><br>8 (800) 250-66-48 ㅤㅤㅤㅤㅤㅤㅤㅤㅤВоскресенский бул., 2/2, Привокзальный район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Десяточка.png') }}" alt="Магазин Десяточка.png">
+            <div class="card-body">
+                <h4 class="card-title">Десяточка</h4>
+                <p class="card-text">«Десяточка» — российская сеть магазинов формата "у дома", предлагающая широкий ассортимент продуктов и товаров повседневного спроса. Она известна доступными ценами и удобным расположением, что делает её привлекательной для покупателей, стремящихся к экономии и удобству.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤДесятинная ул., 2, район Софийская сторона</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Градусы.png') }}" alt="Магазин Градусы.png">
+            <div class="card-body">
+                <h4 class="card-title">Градусы</h4>
+                <p class="card-text">«Градусы» — российская сеть магазинов формата «у дома», специализирующаяся на продаже продуктов питания высокого качества. Сеть известна своим разнообразным ассортиментом продуктов, в том числе экологически чистых и импортированных, а также удобным расположением магазинов.<br><br>+7 (905) 213-44-26 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤОктябрьская ул., 24/12</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Магазинъ.png') }}" alt="Магазин Магазинъ.png">
+            <div class="card-body">
+                <h4 class="card-title">Магазинъ</h4>
+                <p class="card-text">«Магазинъ» — российская сеть магазинов, предлагающая широкий ассортимент продуктов питания и товаров повседневного спроса. Она ориентирована на качество, доступные цены и удобное расположение, обеспечивая комфортный шопинг для покупателей.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤВоскресенский бул., 17/22, Привокзальный район</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Светофор.png') }}" alt="Магазин Светофор.png">
+            <div class="card-body">
+                <h4 class="card-title">Светофор</h4>
+                <p class="card-text">«Светофор» — российская сеть дискаунтеров, предлагающая широкий ассортимент продуктов питания и товаров повседневного спроса по низким ценам. Магазины ориентированы на экономию, предоставляя покупателям возможность приобретать качественные товары без лишних затрат.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤКолмовская наб., 3 • ТЦ Парус</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Продукты 24.png') }}" alt="Магазин Продукты 24.png">
+            <div class="card-body">
+                <h4 class="card-title">Продукты 24</h4>
+                <p class="card-text">«Продукты 24» — российская сеть магазинов формата «у дома», предлагающая круглосуточный доступ к широкому ассортименту продуктов питания и товаров первой необходимости. Сеть ориентирована на удобство и оперативность обслуживания, обеспечивая покупателям возможность делать покупки в любое время.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤПрусская ул., 14</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

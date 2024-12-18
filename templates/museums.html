@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Подключение локального Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/museums.css') }}">
+
+    <title>Городской гид - {{title}}</title>
+
+    <!-- Украшаем вкладку вашим логотипом -->
+    <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
+
+    <!-- Шапка -->
+    <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="logo" onclick="window.location.href='/';">
+                <img height="50px" width="70px" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" class="img-logo" alt="Иконка лого.png">
+                <span class="text-logo">Городской Гид</span>
+            </div>
+            <form class="bd-search position-relative me-auto" action="/search" method="POST">
+                <span class="algolia-autocomplete">
+                    <input class="form-control ds-input" id="search-input" name="query" placeholder="Поиск в документации..." aria-autocomplete="list">
+                </span>
+            </form>
+            <div class="dropdown" >
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Вход</span>
+                </button>
+                <button class="btn btn-bd-light" style="border: 1px solid #ced4da;">
+                    <span class="d-none d-lg-inline">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+    <!-- Иконки список -->
+        <div class="container" style="margin-top: 50px;">
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Витославлицы.png') }}" alt="Музей «Витославлицы».png">
+                <div class="card-body">
+                    <h4 class="card-title">Музей народного деревянного зодчества Витославлицы</h4>
+                    <p class="card-text">Музей «Витославлицы» — это музей деревянного зодчества под открытым небом, расположенный в живописном месте на берегу реки.<br><br>+7 (921) 020-54-22 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤЮрьевское ш., 15</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Новгородский кремль.png') }}" alt="Музей Новгородский кремль.png">
+                <div class="card-body">
+                    <h4 class="card-title">Новгородский кремль</h4>
+                    <p class="card-text">Новгородский кремль — это музейный комплекс, который является одной из главных достопримечательностей Великого Новгорода.<br><br>+7 (8162) 90-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤНовгородский кремль, 25</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Поветкина.png') }}" alt="Музей музыкальных древностей В.И. Поветкина.png">
+                <div class="card-body">
+                    <h4 class="card-title">Центр музыкальных древностей В.И. Поветкина</h4>
+                    <p class="card-text">Центр музыкальных древностей В.И. Поветкина — это уникальное место, где можно услышать звучание редких и самобытных инструментов, которые могли бы быть утрачены навсегда.<br><br>+7 (8162) 63-50-19 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤИльина ул., 9Б, район Торговая сторона</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Рубцова.png') }}" alt="Киномузей Валерия Рубцова.png">
+                <div class="card-body">
+                    <h4 class="card-title">Киномузей Валерия Рубцова</h4>
+                    <p class="card-text">Киномузей Валерия Рубцова — это частная коллекция киноаппаратуры и других экспонатов, связанных с историей кино.<br><br>+7 (911) 642-71-79 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Рогатица, 16/21, район Торговая сторона</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/музей-заповедник.png') }}" alt="Новгородский музей-заповедник.png">
+                <div class="card-body">
+                    <h4 class="card-title">Новгородский государственный объединенный музей-заповедник, главное здание музея</h4>
+                    <p class="card-text">Новгородский музей-заповедник — это место, где вы можете погрузиться в историю Новгородской земли. Здесь вы найдете множество археологических находок, позволяющих узнать много нового из истории Новгорода.<br><br>+7 (921) 730-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Новгородский кремль, 4</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/изобразительных искусств.png') }}" alt="Музей изобразительных искусств.png">
+                <div class="card-body">
+                    <h4 class="card-title">Музей изобразительных искусств</h4>
+                    <p class="card-text">Музей изобразительных искусств в Великом Новгороде — это место, где можно увидеть работы известных русских художников, таких как Шишкин, Айвазовский, Репин и Куинджи, а также посетить временные выставки.<br><br>+7 (921) 730-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤплощадь Победы-Софийская, 2</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/цех фарфора.png') }}" alt="Музейный цех фарфора.png">
+                <div class="card-body">
+                    <h4 class="card-title">Музейный цех фарфора</h4>
+                    <p class="card-text">«Музейный цех фарфора» является частью Музея художественной культуры Новгородской земли в Десятинном монастыре.<br><br>+7 (911) 644-02-91 ㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Десятинный монастырь, 6</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/художественной культуры.png') }}" alt="музей художественной культуры.png">
+                <div class="card-body">
+                    <h4 class="card-title">Государственный музей художественной культуры Новгородской земли</h4>
+                    <p class="card-text">Музей художественной культуры Новгородской земли — это музей, расположенный на территории Десятинного монастыря, памятника архитектуры XIV-XIX веков. В музее представлены произведения искусства новгородских художников конца ХХ — начала XXI веков.<br><br>+7 (921) 730-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤплощадь Победы-Софийская, 2</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Владычная палата.png') }}" alt="музей Владычная палата.png">
+                <div class="card-body">
+                    <h4 class="card-title">Владычная палата</h4>
+                    <p class="card-text">Владычная палата — это уникальный памятник древнерусской архитектуры, выполненный в стиле западноевропейской готики. Это единственное сохранившееся гражданское сооружение средневекового Новгорода.<br><br>+7 (921) 207-37-70 ㅤㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Новгородский кремль, 14А</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Александра Варенцова.png') }}" alt="Мастерская-музей.png">
+                <div class="card-body">
+                    <h4 class="card-title">Мастерская-музей реалистической живописи Александра Варенцова</h4>
+                    <p class="card-text">Музей реалистической живописи А. Варенцова — это место, где взрослые и дети могут раскрыть свой творческий потенциал.<br><br>+7 (911) 644-43-42 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤКаберова-Власьевская ул., 22 • этаж 3</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Музей письменности.png') }}" alt="Музей письменности.png">
+                <div class="card-body">
+                    <h4 class="card-title">Музей письменности</h4>
+                    <p class="card-text">Музей письменности — это современный интерактивный музей, который рассказывает об истории письменности и берестяных грамотах. Здесь можно увидеть оригинальные берестяные грамоты и их копии, а также старинные рукописные и первые печатные книги.<br><br>+7 (921) 730-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Новгородский кремль, 12</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Детский музейный центр.png') }}" alt="Детский музейный центр.png">
+                <div class="card-body">
+                    <h4 class="card-title">Детский музейный центр</h4>
+                    <p class="card-text">Детский музейный центр в Великом Новгороде — это место, где дети могут узнать много интересного о древнем городе и его жителях.<br><br>+7 (8162) 77-40-54<br>район Софийская сторона, Новгородский кремль, Студийский городок 3</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Алексеевская Белая башня.png') }}" alt="Алексеевская Белая башня.png">
+                <div class="card-body">
+                    <h4 class="card-title">Алексеевская Белая башня</h4>
+                    <p class="card-text">Алексеевская Белая башня — это интерактивный музей, рассказывающий о героической обороне Великого Новгорода от шведского вторжения начала XVII века. В музее представлены как подлинные экспонаты, так и реконструкция некоторых предметов одежды, воинского снаряжения и оружия.<br><br>+7 (921) 730-93-92 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤТроицкая ул., 15А</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Зал воинской славы.png') }}" alt="Зал воинской славы.png">
+                <div class="card-body">
+                    <h4 class="card-title">Зал воинской славы</h4>
+                    <p class="card-text">Зал воинской славы в Великом Новгороде — часть музейного комплекса, посвященного военной доблести и патриотизму России. Он находится в Новгородском музее-заповеднике и включает экспозицию, посвященную важным событиям, связанным с защитой Родины.<br><br>+7 (8162) 94-87-64 ㅤㅤㅤㅤㅤㅤㅤㅤㅤЧудинцева ул., 11/62, район Софийская сторона</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Музей Утюга.png') }}" alt="Музей Утюга.png">
+                <div class="card-body">
+                    <h4 class="card-title">Музей Утюга</h4>
+                    <p class="card-text">«Музей утюга» — это частная коллекция утюгов всех видов (цельнолитые, со сменными ручками и вкладышами, на угле, на газе, на спирте, на электричестве, сувенирные), XVIII-XX веков, из разных стран (СССР, Франция, США, Польша, Тунис).<br><br>+7 (921) 203-90-47 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤЮрьевское ш., 6Б</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/музей-заповедник1.png') }}" alt="музей-заповедник.png">
+                <div class="card-body">
+                    <h4 class="card-title">Новгородский музей-заповедник, экскурсионный отдел</h4>
+                    <p class="card-text">Новгородский музей-заповедник, экскурсионный отдел — это место, где вы можете заказать индивидуальную или групповую экскурсию, а также воспользоваться услугами профессионального экскурсовода.<br><br>+7 (921) 207-37-70 ㅤㅤㅤㅤㅤㅤул. Мерецкова-Волосова, 2, район Софийская сторона</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Центр противопожарной пропаганды.png') }}" alt="Центр противопожарной пропаганды.png">
+                <div class="card-body">
+                    <h4 class="card-title">Центр противопожарной пропаганды и общественных связей</h4>
+                    <p class="card-text">Центр противопожарной пропаганды и общественных связей в Великом Новгороде — специализированный музей, посвященный пожарной безопасности и истории пожарной службы. Здесь представлены экспозиции, знакомящие посетителей с основами безопасности и методами тушения пожаров.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤㅤㅤул. Михайлова, 27, район Торговая сторона</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Стены и башни.png') }}" alt="Стены и башни.png">
+                <div class="card-body">
+                    <h4 class="card-title">Стены и башни Новгородского кремля</h4>
+                    <p class="card-text">Музей «Стены и башни Новгородского кремля» — это место, где можно насладиться красотой и величием этого древнего сооружения.<br><br>+7 (8162) 77-37-38 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤНовгородский кремль</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Лекторий.png') }}" alt="Лекторий.png">
+                <div class="card-body">
+                    <h4 class="card-title">Лекторий</h4>
+                    <p class="card-text">Лекторий в Великом Новгороде — образовательное пространство в одном из музеев, предлагающее лекции, семинары и мастер-классы. Его цель — популяризация знаний в истории, культуре и искусстве, а также повышение осведомленности о социальных и экологических вопросах.<br><br>+7 (8162) 77-37-63 ㅤㅤㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Новгородский кремль, 7</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/музея-заповедника2.png') }}" alt="музея-заповедника.png">
+                <div class="card-body">
+                    <h4 class="card-title">Дирекция Новгородского государственного объединённого музея-заповедника</h4>
+                    <p class="card-text">Дирекция Новгородского государственного объединенного музея-заповедника в Великом Новгороде управляет музеем, который включает несколько исторических и культурных объектов. Музей играет ключевую роль в сохранении и популяризации культурного наследия региона, проводя выставки и образовательные программы.<br><br>+7 (8162) 77-36-08 ㅤㅤㅤㅤㅤㅤㅤㅤрайон Софийская сторона, Новгородский кремль, 9</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Усадебный дом.png') }}" alt="Усадебный дом.png">
+                <div class="card-body">
+                    <h4 class="card-title">Усадебный дом А.А. Орловой-Чесменской</h4>
+                    <p class="card-text">Усадебный дом А.А. Орловой-Чесменской — это музей, расположенный в музее-заповеднике «Витославлицы». Он представляет собой двухэтажный дом, в котором можно увидеть экспозицию, посвященную жизни и деятельности графини Орловой-Чесменской.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤНовгородская область, Великий Новгород, Юрьево</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Музей истории органов внутренних дел.png') }}" alt="Музей истории органов внутренних дел.png">
+                <div class="card-body">
+                    <h4 class="card-title">Музей истории органов внутренних дел Новгородской области культурного центра УМВД России по Новгородской области</h4>
+                    <p class="card-text">Музей истории органов внутренних дел Новгородской области, расположенный в культурном центре УМВД России, посвящен истории правоохранительных органов региона. Он представляет собой площадку с экспонатами, документами и фотографиями, иллюстрирующими развитие милиции и полиции в области.<br><br> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤпросп. Александра Корсунова, 34</p>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
