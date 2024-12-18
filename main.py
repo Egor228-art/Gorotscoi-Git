@@ -1,55 +1,42 @@
-import bcrypt
-from flask import Flask, jsonify, render_template, request, redirect, url_for
-import sqlite3
 import re
-
+import os
+import sqlite3
+import bcrypt
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, jsonify, render_template, request, url_for
 app = Flask(__name__)
 app.secret_key = '3678536785'
+db_path = os.path.join(os.path.dirname(__file__), 'instance', 'database.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-def create_users_table():
-    # Подключаемся к базе данных (или создаем ее, если она не существует)
-    conn = sqlite3.connect('db/database.db')
-    cursor = conn.cursor()
+# Определяем модель пользователя
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
 
-    # SQL-запрос для создания таблицы
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS database (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL
-    );
-    """
-
-    # Выполняем SQL-запрос
-    cursor.execute(create_table_sql)
-
-    # Сохраняем изменения и закрываем соединение
-    conn.commit()
-    conn.close()
+# Создаем базу данных
+with app.app_context():
+    db.create_all()
 
 def register_user(username, password):
-    conn = sqlite3.connect('db/database.db')
-    cursor = conn.cursor()
-
     try:
-        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
-        user = cursor.fetchone()
-
-        if user:
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
             return False, "Пользователь с таким логином уже существует."
 
-        # Хэширование пароля
+        # Хеширование пароля
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
-        conn.commit()
+        new_user = User(username=username, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
         return True, "Пользователь успешно зарегистрирован."
 
-    except sqlite3.Error as e:
+    except Exception as e:
         return False, str(e)
-
-    finally:
-        conn.close()
 
 # Список элементов для поиска
 restaurants = [
@@ -843,6 +830,23 @@ restaurants = [
     },
 ]
 
+@app.route('/register', methods=['POST'])
+def register():
+    username = request.form['username']
+    password = request.form['password']
+
+    if User.query.filter_by(username=username).first() is None:
+        new_user = User(username=username, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        return "Регистрация успешна!"
+    else:
+        return "Пользователь с таким именем уже существует!"
+
+@app.route('/login')
+def login():
+    return "Страница входа"
+
 #Сайт
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -939,7 +943,7 @@ def church():
 @app.route("/hotels", methods=["GET"])
 def hotels():
     print(url_for("hotels"))
-    return render_template("hotels.html", title="Церковь")
+    return render_template("hotels.html", title="Отели")
 
 if __name__ == "__main__":
     app.run(debug=True)
