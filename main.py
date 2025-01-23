@@ -1,34 +1,68 @@
 import re
 import os
 import sqlite3
-import bcrypt
+from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, jsonify, render_template, request, url_for
+from flask_session import Session
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, jsonify, render_template, request, url_for, session, redirect
+from sqlalchemy import create_engine, text
 app = Flask(__name__)
-app.secret_key = '3678536785'
-db_path = os.path.join(os.path.dirname(__file__), 'instance', 'database.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
+# Определение модели для хранения секретов
+class Secret(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    key_name = db.Column(db.String(255), nullable=False, unique=True)
+    secret_value = db.Column(db.String(255), nullable=False)
+
+# Создание таблицы в базе данных
+with app.app_context():
+    db.create_all()
+
+# Функция для добавления секрета в базу данных
+def add_secret(key_name, secret_value):
+    with app.app_context():
+        existing_secret = Secret.query.filter_by(key_name=key_name).first()
+        if existing_secret:
+            return
+        new_secret = Secret(key_name=key_name, secret_value=secret_value)
+        db.session.add(new_secret)
+        db.session.commit()
+
+# Функция для получения секрета из базы данных
+def get_secret(key_name):
+    with app.app_context():
+        secret = Secret.query.filter_by(key_name=key_name).first()
+        return secret.secret_value if secret else None
+
+# Получение секретного ключа из базы данных и настройка Flask-приложения
+app.config['SECRET_KEY'] = get_secret('SECRET_KEY')
 
 # Определяем модель пользователя
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(150), nullable=False, unique=True)
+    password = db.Column(db.String(150), nullable=False)
 
-# Создаем базу данных
 with app.app_context():
     db.create_all()
 
-def register_user(username, password):
+def register_user(username, password, secret_key):
     try:
+        if secret_key != app.config['SECRET_KEY']:
+            return False, "Неверный секретный ключ."
+
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
             return False, "Пользователь с таким логином уже существует."
 
         # Хеширование пароля
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
         new_user = User(username=username, password=hashed_password)
         db.session.add(new_user)
@@ -37,6 +71,36 @@ def register_user(username, password):
 
     except Exception as e:
         return False, str(e)
+
+@app.route('/register', methods=['POST'])
+def register():
+    username = request.form['username']
+    password = request.form['password']
+    secret_key = request.form['secret_key']
+
+    success, message = register_user(username, password, secret_key)
+    if success:
+        session['username'] = username
+        return jsonify({'success': True, 'username': username})
+    else:
+        return jsonify({'success': False, 'message': message})
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    user = User.query.filter_by(username=username).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        session['username'] = username
+        return jsonify({'success': True, 'username': username})
+    else:
+        return jsonify({'success': False, 'message': 'Неверный логин или пароль'})
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.pop('username', None)
+    return jsonify({'success': True})
 
 # Список элементов для поиска
 restaurants = [
@@ -829,24 +893,6 @@ restaurants = [
         "contact2": "Большая Санкт-Петербургская ул., 21 этаж 2"
     },
 ]
-
-@app.route('/register', methods=['POST'])
-def register():
-    username = request.form['username']
-    password = request.form['password']
-
-    if User.query.filter_by(username=username).first() is None:
-        new_user = User(username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-        return "Регистрация успешна!"
-    else:
-        return "Пользователь с таким именем уже существует!"
-
-@app.route('/login')
-def login():
-    return "Страница входа"
-
 #Сайт
 @app.route("/", methods=['GET', 'POST'])
 def index():

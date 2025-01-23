@@ -1,215 +1,220 @@
-.img-logo {
-    position: relative;
-    left: -250px;
-}
+        .dropdown {
+            display: flex;
+            gap: 4px;
+        }
 
-.text-logo {
-    position: relative;
-    left: -230px;
-    font-size: 30px;
-    font-family: SFMono-Regular;
-}
+        .img-logo {
+            position: relative;
+            left: -250px;
+        }
 
-.algolia-autocomplete {
-    position: relative;
-    left: -200px;
-}
+        .text-logo {
+            position: relative;
+            left: -230px;
+            font-size: 30px;
+            font-family: SFMono-Regular;
+        }
 
-.bd-subnavbar {
-    position: fixed; /* Фиксируем навигацию */
-    top: 0; /* Устанавливаем на верх страницы */
-    left: 0; /* Устанавливаем на левый край */
-    right: 0; /* Устанавливаем на правый край */
-    z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
-    background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
-    border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
-}
+        .algolia-autocomplete {
+            position: relative;
+            left: -200px;
+        }
 
-body {
-    padding-top: 60px; /* Отступ, равный высоте шапки */
-}
+        .bd-subnavbar {
+            position: fixed; /* Фиксируем навигацию */
+            top: 0; /* Устанавливаем на верх страницы */
+            left: 0; /* Устанавливаем на левый край */
+            right: 0; /* Устанавливаем на правый край */
+            z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
+            background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
+            border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
+        }
 
-.algolia-autocomplete {
-    position: relative;
-    display: inline-block;
-    direction: ltr;
-}
+        body {
+            padding-top: 60px; /* Отступ, равный высоте шапки */
+        }
 
-.form-control ds-input {
-    position: relative;
-    vertical-align: top;
-}
+        .algolia-autocomplete {
+            position: relative;
+            display: inline-block;
+            direction: ltr;
+        }
 
-.img-top-center {
-    z-index: 1;
-    position: absolute;
-    text-align: center;
-    height: 900px;
-    width: 100%;
-}
+        .form-control ds-input {
+            position: relative;
+            vertical-align: top;
+        }
 
-.text-center {
-    position: absolute; /* Абсолютное позиционирование текста */
-    top: 400px; /* Фиксированное положение текста по вертикали */
-    left: 20%; /* Центрирование по горизонтали */
-    transform: translateX(-12%);
-    z-index: 2;
-}
+        .img-top-center {
+            z-index: 1;
+            position: absolute;
+            text-align: center;
+            height: 900px;
+            width: 100%;
+        }
 
-.image-container {
-    position: relative; /* Позволяет использовать абсолютное позиционирование для текста */
-    width: 100%; /* Ширина контейнера */
-    max-width: 1900px; /* Максимальная ширина контейнера */
-    margin: auto;
-}
+        .text-center {
+            position: absolute; /* Абсолютное позиционирование текста */
+            top: 400px; /* Фиксированное положение текста по вертикали */
+            left: 20%; /* Центрирование по горизонтали */
+            transform: translateX(-12%);
+            z-index: 2;
+        }
 
-.lh-base {
-    font-family: Georgia;
-}
+        .image-container {
+            position: relative; /* Позволяет использовать абсолютное позиционирование для текста */
+            width: 100%; /* Ширина контейнера */
+            max-width: 1900px; /* Максимальная ширина контейнера */
+            margin: auto;
+        }
 
-.container {
-    margin-top: 900px;
-    display: flex;
-    justify-content: center;
-    padding-top: 4em;
-    gap: 45px;
-}
+        .lh-base {
+            font-family: Georgia;
+        }
 
-.container1 {
-    margin-top: -30px;
-    display: flex;
-    justify-content: center;
-    padding-top: 4em;
-    gap: 45px;
-}
+        .container {
+            margin-top: 900px;
+            display: flex;
+            justify-content: center;
+            padding-top: 4em;
+            gap: 45px;
+        }
 
-.container2 {
-    margin-top: -30px;
-    display: flex;
-    justify-content: center;
-    padding-top: 4em;
-    gap: 45px;
-}
+        .container1 {
+            margin-top: -30px;
+            display: flex;
+            justify-content: center;
+            padding-top: 4em;
+            gap: 45px;
+        }
 
-.container3 {
-    margin-bottom: 60px;
-    margin-top: -30px;
-    display: flex;
-    justify-content: center;
-    padding-top: 4em;
-    gap: 45px;
-}
+        .container2 {
+            margin-top: -30px;
+            display: flex;
+            justify-content: center;
+            padding-top: 4em;
+            gap: 45px;
+        }
 
-.card {
-    width: 18rem;
-    border-radius: 10px;
-    border-color: #a8adb2;
-    cursor: pointer;
-}
+        .container3 {
+            margin-bottom: 60px;
+            margin-top: -30px;
+            display: flex;
+            justify-content: center;
+            padding-top: 4em;
+            gap: 45px;
+        }
 
-.text-icon {
-    margin-top: -15px;
-    text-align: center;
-    font-size: 30px;
-}
+        .card {
+            width: 18rem;
+            border-radius: 10px;
+            border-color: #a8adb2;
+            cursor: pointer;
+        }
 
-.img-top:hover {
-    transform: translateY(-5px); /* Поднимает изображение вверх при наведении */
-}
+        .text-icon {
+            margin-top: -15px;
+            text-align: center;
+            font-size: 30px;
+        }
 
-#overlay {
-    display: none; /* Скрываем фон по умолчанию */
-    position: fixed; /* Фиксируем позицию фона */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
-    z-index: 999; /* Поднимаем фон над остальным контентом */
-}
+        .img-top:hover {
+            transform: translateY(-5px); /* Поднимает изображение вверх при наведении */
+        }
 
-#content_window {
-    animation: ani 1.5s forwards;
-    display: none; /* Скрываем окно по умолчанию */
-    position: fixed; /* Фиксируем позицию окна */
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ced4da;
-    padding: 20px;
-    z-index: 1000; /* Окно выше фона */
-    width: 300px; /* Устанавливаем ширину формы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    top: 50%; /* Центрируем по вертикали */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
-    opacity: 0; /* Начальная прозрачность */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
-}
+        #overlay {
+            display: none; /* Скрываем фон по умолчанию */
+            position: fixed; /* Фиксируем позицию фона */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+            z-index: 999; /* Поднимаем фон над остальным контентом */
+        }
 
-#content_window.show {
-    display: block; /* Показываем окно */
-    transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
-}
+        #content_window {
+            animation: ani 1.5s forwards;
+            display: none; /* Скрываем окно по умолчанию */
+            position: fixed; /* Фиксируем позицию окна */
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ced4da;
+            padding: 20px;
+            z-index: 1000; /* Окно выше фона */
+            width: 300px; /* Устанавливаем ширину формы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: 50%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+        }
 
-#content_window2 {
-    animation: ani 1.5s forwards;
-    display: none; /* Скрываем окно по умолчанию */
-    position: fixed; /* Фиксируем позицию окна */
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ced4da;
-    padding: 20px;
-    z-index: 1000; /* Окно выше фона */
-    width: 300px; /* Устанавливаем ширину формы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    top: 50%; /* Центрируем по вертикали */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
-    opacity: 0; /* Начальная прозрачность */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
-}
+        #content_window.show {
+            display: block; /* Показываем окно */
+            transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
+        }
 
-#content_window2.show {
-    display: block; /* Показываем окно */
-    transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
-}
+        #content_window2 {
+            animation: ani 1.5s forwards;
+            display: none; /* Скрываем окно по умолчанию */
+            position: fixed; /* Фиксируем позицию окна */
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ced4da;
+            padding: 20px;
+            z-index: 1000; /* Окно выше фона */
+            width: 300px; /* Устанавливаем ширину формы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: 50%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%) scale(0); /* Начальное состояние (сжатое) */
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+        }
 
-.btnX {
-    margin-left: 240px;
-    top: 15px;
-    position: absolute;
-    background-color: transparent; /* Прозрачный фон */
-    color: #dc3545; /* Цвет текста (красный) */
-    border: none; /* Убираем границу */
-    font-size: 40px; /* Размер шрифта */
-    cursor: pointer; /* Указываем, что это кнопка */
-}
+        #content_window2.show {
+            display: block; /* Показываем окно */
+            transform: translate(-50%, -50%) scale(1); /* Увеличиваем до нормального размера */
+        }
 
-/* Стили при наведении */
-.btnX:hover {
-    background-color: transparent; /* Прозрачный фон при наведении */
-    color: #c82333; /* Цвет текста при наведении */
-}
+        .btnX {
+            margin-left: 240px;
+            top: 15px;
+            position: absolute;
+            background-color: transparent; /* Прозрачный фон */
+            color: #dc3545; /* Цвет текста (красный) */
+            border: none; /* Убираем границу */
+            font-size: 40px; /* Размер шрифта */
+            cursor: pointer; /* Указываем, что это кнопка */
+        }
 
-/* Стили при нажатии */
-.btnX:active {
-    background-color: transparent; /* Прозрачный фон при нажатии */
-    color: #c82333; /* Цвет текста при нажатии */
-}
+        /* Стили при наведении */
+        .btnX:hover {
+            background-color: transparent; /* Прозрачный фон при наведении */
+            color: #c82333; /* Цвет текста при наведении */
+        }
 
-/* Убираем обводку при фокусе */
-.btnX:focus {
-    outline: none; /* Убираем обводку при фокусе */
-}
+        /* Стили при нажатии */
+        .btnX:active {
+            background-color: transparent; /* Прозрачный фон при нажатии */
+            color: #c82333; /* Цвет текста при нажатии */
+        }
 
-.btnB {
-    margin-left: 100px;
-    border-radius: 10px;
-    border-color: #0B63F6;
-    color: white;
-    transition: .2s linear;
-    background: #0B63F6;
-}
+        /* Убираем обводку при фокусе */
+        .btnX:focus {
+            outline: none; /* Убираем обводку при фокусе */
+        }
 
-@keyframes ani {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
+        .btnB {
+            margin-left: 100px;
+            border-radius: 10px;
+            border-color: #0B63F6;
+            color: white;
+            transition: .2s linear;
+            background: #0B63F6;
+        }
+
+        @keyframes ani {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }

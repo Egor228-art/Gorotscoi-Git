@@ -1,3 +1,73 @@
+.popup-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            z-index: 1000;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #overlay {
+            display: none; /* Скрываем фон по умолчанию */
+            position: fixed; /* Фиксируем позицию фона */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+            z-index: 999; /* Поднимаем фон над остальным контентом */
+        }
+
+        .btnX {
+            margin-left: 240px;
+            top: 15px;
+            position: absolute;
+            background-color: transparent; /* Прозрачный фон */
+            color: #dc3545; /* Цвет текста (красный) */
+            border: none; /* Убираем границу */
+            font-size: 40px; /* Размер шрифта */
+            cursor: pointer; /* Указываем, что это кнопка */
+        }
+
+        /* Стили при наведении */
+        .btnX:hover {
+            background-color: transparent; /* Прозрачный фон при наведении */
+            color: #c82333; /* Цвет текста при наведении */
+        }
+
+        /* Стили при нажатии */
+        .btnX:active {
+            background-color: transparent; /* Прозрачный фон при нажатии */
+            color: #c82333; /* Цвет текста при нажатии */
+        }
+
+        /* Убираем обводку при фокусе */
+        .btnX:focus {
+            outline: none; /* Убираем обводку при фокусе */
+        }
+
+        .btnB {
+            margin-left: 100px;
+            border-radius: 10px;
+            border-color: #0B63F6;
+            color: white;
+            transition: .2s linear;
+            background: #0B63F6;
+        }
+
+        #userInfo {
+            margin-left: auto;
+            margin-right: 300px;
+        }
+
 .logo {
     margin-left: 76px;
     cursor: pointer;
@@ -37,6 +107,8 @@ body {
 }
 
 .dropdown {
+    display: flex;
+    gap: 4px;
     margin-left: auto;
     margin-right: 300px;
 }

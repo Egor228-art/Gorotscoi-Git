@@ -1,75 +1,147 @@
-.logo {
-    margin-left: 76px;
-    cursor: pointer;
-}
+.popup-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            z-index: 1000;
+        }
 
-.img-logo {
-    position: relative;
-    left: -25px;
-}
+        .show {
+            display: block;
+        }
 
-.text-logo {
-    position: relative;
-    left: -5.6px;
-    font-size: 30px;
-    font-family: SFMono-Regular;
-}
+        #overlay {
+            display: none; /* Скрываем фон по умолчанию */
+            position: fixed; /* Фиксируем позицию фона */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+            z-index: 999; /* Поднимаем фон над остальным контентом */
+        }
 
-.bd-subnavbar {
-    position: fixed; /* Фиксируем навигацию */
-    top: 0; /* Устанавливаем на верх страницы */
-    left: 0; /* Устанавливаем на левый край */
-    right: 0; /* Устанавливаем на правый край */
-    z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
-    background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
-    border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
-}
+        .btnX {
+            margin-left: 240px;
+            top: 15px;
+            position: absolute;
+            background-color: transparent; /* Прозрачный фон */
+            color: #dc3545; /* Цвет текста (красный) */
+            border: none; /* Убираем границу */
+            font-size: 40px; /* Размер шрифта */
+            cursor: pointer; /* Указываем, что это кнопка */
+        }
 
-body {
-    padding-top: 70px; /* Отступ, равный высоте шапки */
-}
+        /* Стили при наведении */
+        .btnX:hover {
+            background-color: transparent; /* Прозрачный фон при наведении */
+            color: #c82333; /* Цвет текста при наведении */
+        }
 
-.algolia-autocomplete {
-    position: relative;
-    display: inline-block;
-    direction: ltr;
-    left: 25px;
-}
+        /* Стили при нажатии */
+        .btnX:active {
+            background-color: transparent; /* Прозрачный фон при нажатии */
+            color: #c82333; /* Цвет текста при нажатии */
+        }
 
-.dropdown {
-    margin-left: auto;
-    margin-right: 300px;
-}
+        /* Убираем обводку при фокусе */
+        .btnX:focus {
+            outline: none; /* Убираем обводку при фокусе */
+        }
 
-.form-control ds-input {
-    position: relative;
-    vertical-align: top;
-}
+        .btnB {
+            margin-left: 100px;
+            border-radius: 10px;
+            border-color: #0B63F6;
+            color: white;
+            transition: .2s linear;
+            background: #0B63F6;
+        }
 
-.img-top {
-    position: relative;
-    transition: filter 0.3s;
-    border-radius: 15px;
-    margin: 10px;
-}
+        #userInfo {
+            margin-left: auto;
+            margin-right: 300px;
+        }
 
-.card-body {
-    padding: 0;
-    margin-left: 280px;
-    margin-top: -250px;
-    height: 250px;
-}
+        .logo {
+            margin-left: 76px;
+            cursor: pointer;
+        }
 
-.card-text {
-    font-size: 20px;
-    padding-bottom: 30px;
-}
+        .img-logo {
+            position: relative;
+            left: -25px;
+        }
 
-.card {
-    margin-top: 20px;
-    bottom: 20px;
-}
+        .text-logo {
+            position: relative;
+            left: -5.6px;
+            font-size: 30px;
+            font-family: SFMono-Regular;
+        }
 
-.card:hover .img-top {
-    filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
-}
+        .bd-subnavbar {
+            position: fixed; /* Фиксируем навигацию */
+            top: 0; /* Устанавливаем на верх страницы */
+            left: 0; /* Устанавливаем на левый край */
+            right: 0; /* Устанавливаем на правый край */
+            z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
+            background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
+            border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
+        }
+
+        body {
+            padding-top: 70px; /* Отступ, равный высоте шапки */
+        }
+
+        .algolia-autocomplete {
+            position: relative;
+            display: inline-block;
+            direction: ltr;
+            left: 25px;
+        }
+
+        .dropdown {
+            display: flex;
+            gap: 4px;
+            margin-left: auto;
+            margin-right: 300px;
+        }
+
+        .form-control ds-input {
+            position: relative;
+            vertical-align: top;
+        }
+
+        .img-top {
+            position: relative;
+            transition: filter 0.3s;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .card-body {
+            padding: 0;
+            margin-left: 280px;
+            margin-top: -250px;
+            height: 250px;
+        }
+
+        .card-text {
+            font-size: 20px;
+            padding-bottom: 30px;
+        }
+
+        .card {
+            margin-top: 20px;
+            bottom: 20px;
+        }
+
+        .card:hover .img-top {
+            filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
+        }

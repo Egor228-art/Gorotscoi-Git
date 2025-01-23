@@ -1,101 +1,174 @@
-.logo {
-    margin-top: 15px;
-    margin-left: -1095px;
-    cursor: pointer;
-}
+.popup-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            z-index: 1000;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+        }
 
-.img-logo {
-    position: relative;
-    margin-bottom: 10px;
-    left: -25px;
-}
+        .show {
+            display: block;
+            opacity: 1; /* Конечная прозрачность */
+        }
 
-.text-logo {
-    position: relative;
-    left: -5.6px;
-    top: -5px;
-    font-size: 30px;
-    font-family: SFMono-Regular;
-}
+        #overlay {
+            display: none; /* Скрываем фон по умолчанию */
+            position: fixed; /* Фиксируем позицию фона */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+            z-index: 999; /* Поднимаем фон над остальным контентом */
+        }
 
-.bd-subnavbar {
-    position: fixed; /* Фиксируем навигацию */
-    top: 40px; /* Устанавливаем на верх страницы */
-    left: 0; /* Устанавливаем на левый край */
-    right: 0; /* Устанавливаем на правый край */
-    z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
-    background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
-    border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
-}
+        .btnX {
+            margin-left: 240px;
+            top: 15px;
+            position: absolute;
+            background-color: transparent; /* Прозрачный фон */
+            color: #dc3545; /* Цвет текста (красный) */
+            border: none; /* Убираем границу */
+            font-size: 40px; /* Размер шрифта */
+            cursor: pointer; /* Указываем, что это кнопка */
+        }
 
-body {
-    padding-top: 30px; /* Отступ, равный высоте шапки */
-}
+        /* Стили при наведении */
+        .btnX:hover {
+            background-color: transparent; /* Прозрачный фон при наведении */
+            color: #c82333; /* Цвет текста при наведении */
+        }
 
-.container-xxl {
-    justify-content: center;
-    display: flex;
-    margin-top: -50px;
-    position: fixed;
-    z-index: 1000;
-    background: white;
-    width: 100%;
-    height: 73px;
-    border: 1px solid #ced4da;
-}
+        /* Стили при нажатии */
+        .btnX:active {
+            background-color: transparent; /* Прозрачный фон при нажатии */
+            color: #c82333; /* Цвет текста при нажатии */
+        }
 
-.algolia-autocomplete {
-    position: relative;
-    display: inline-block;
-    direction: ltr;
-    left: 25px;
-}
+        /* Убираем обводку при фокусе */
+        .btnX:focus {
+            outline: none; /* Убираем обводку при фокусе */
+        }
 
-.dropdown {
-    right: -870px;
-}
+        .btnB {
+            margin-left: 100px;
+            border-radius: 10px;
+            border-color: #0B63F6;
+            color: white;
+            transition: .2s linear;
+            background: #0B63F6;
+        }
 
-.form-control ds-input {
-    position: relative;
-    vertical-align: top;
-}
+        #userInfo {
+            margin-left: auto;
+            margin-right: 300px;
+        }
 
-.container
-    top: -50px;
-}
+        .logo {
+            margin-top: 15px;
+            margin-left: 0;
+            cursor: pointer;
+        }
 
-.img-top {
-    position: relative;
-    transition: filter 0.3s;
-    border-radius: 15px;
-    margin: 10px;
-}
+        .img-logo {
+            position: relative;
+            margin-bottom: 10px;
+            left: 0;
+        }
 
-.card-body {
-    padding: 0;
-    margin-left: 280px;
-    margin-top: -250px;
-    height: 250px;
-}
+        .text-logo {
+            position: relative;
+            left: 0;
+            top: 0;
+            font-size: 30px;
+            font-family: SFMono-Regular;
+        }
 
-.card-text {
-    font-size: 20px;
-    padding-bottom: 30px;
-}
+        .bd-subnavbar {
+            position: fixed; /* Фиксируем навигацию */
+            top: 0; /* Устанавливаем на верх страницы */
+            left: 0; /* Устанавливаем на левый край */
+            right: 0; /* Устанавливаем на правый край */
+            z-index: 1000; /* Устанавливаем высокий z-index, чтобы шапка была поверх других элементов */
+            background-color: white; /* Устанавливаем фон, чтобы текст был читаемым */
+            border-bottom: 1px solid #ced4da; /* Граница снизу для отделения от контента */
+        }
 
-.card {
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
+        body {
+            padding-top: 70px; /* Отступ, равный высоте шапки */
+        }
 
-.card:hover .img-top {
-    filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
-}
+        .container-xxl {
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            position: relative;
+            z-index: 1000;
+            background: white;
+            width: 100%;
+            height: auto;
+            border: none;
+        }
 
-.card-title {
-    margin-top: 50px;
-}
+        .algolia-autocomplete {
+            position: relative;
+            display: inline-block;
+            direction: ltr;
+            left: 25px;
+        }
 
-.card-title {
-    margin-top: -50px;
-}
+        .dropdown {
+            display: flex;
+            gap: 4px;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .form-control ds-input {
+            position: relative;
+            vertical-align: top;
+        }
+
+        .container {
+            top: 0;
+        }
+
+        .img-top {
+            position: relative;
+            transition: filter 0.3s;
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .card-body {
+            padding: 0;
+            margin-left: 280px;
+            margin-top: -250px;
+            height: 250px;
+        }
+
+        .card-text {
+            font-size: 20px;
+            padding-bottom: 30px;
+        }
+
+        .card {
+            margin-top: 20px;
+            bottom: 20px;
+        }
+
+        .card:hover .img-top {
+            filter: brightness(1.2); /* Увеличивает яркость изображения при наведении */
+        }
+
+        .card-title {
+            margin-top: 50px;
+        }
