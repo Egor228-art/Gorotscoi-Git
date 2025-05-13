@@ -5,7 +5,7 @@
     <title>Городской гид - {{title}}</title>
     <!-- Подключение CSS файла -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Restaurant.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css') }}">
     <!-- Украшаем вкладку вашим логотипом -->
     <link rel="icon" href="{{ url_for('static', filename='Фотки зданий/лого.png') }}" type="image/png">
 
@@ -38,7 +38,7 @@
                             <label for="password">Пароль</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль" required>
                         </div>
-                        <button type="submit" class="btnB">Войти</button>
+                        <button type="submit" class="btnA">Войти</button>
                     </form>
                 </div>
                 <button id="registerButton" class="btn btn-bd-light" style="border: 1px solid #ced4da;" onclick="showWindow1()">
@@ -83,6 +83,7 @@
             const windowElement = document.getElementById('content_window');
             windowElement.classList.add('show');
             windowElement.style.display = 'block'; // Убедимся, что окно видимо
+            document.body.classList.add('no-scroll'); // Предотвращаем скролл страницы
         }
 
         function hideWindow() {
@@ -90,6 +91,7 @@
             const windowElement = document.getElementById('content_window');
             windowElement.classList.remove('show');
             windowElement.style.display = 'none'; // Скрываем окно
+            document.body.classList.remove('no-scroll'); // Возвращаем скролл страницы
         }
 
         function showWindow1() {
@@ -97,6 +99,7 @@
             const windowElement = document.getElementById('content_window2');
             windowElement.classList.add('show');
             windowElement.style.display = 'block'; // Убедимся, что окно видимо
+            document.body.classList.add('no-scroll'); // Предотвращаем скролл страницы
         }
 
         function hideWindow1() {
@@ -104,7 +107,32 @@
             const windowElement = document.getElementById('content_window2');
             windowElement.classList.remove('show');
             windowElement.style.display = 'none'; // Скрываем окно
+            document.body.classList.remove('no-scroll'); // Возвращаем скролл страницы
         }
+
+        // Закрытие окна при клике вне его
+        document.getElementById('overlay').addEventListener('click', function() {
+            const window1 = document.getElementById('content_window');
+            const window2 = document.getElementById('content_window2');
+            if (window1.classList.contains('show')) {
+                hideWindow();
+            } else if (window2.classList.contains('show')) {
+                hideWindow1();
+            }
+        });
+
+        // Закрытие окна при нажатии на кнопки внутри окна
+        document.querySelectorAll('.btnA, .btnB').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const window1 = document.getElementById('content_window');
+                const window2 = document.getElementById('content_window2');
+                if (window1.classList.contains('show')) {
+                    hideWindow();
+                } else if (window2.classList.contains('show')) {
+                    hideWindow1();
+                }
+            });
+        });
 
         // Обработчик для формы регистрации
         document.getElementById('regForm').onsubmit = function(event) {
@@ -236,6 +264,10 @@
     </script>
 </head>
 <body>
+<!-- Задний фон -->
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='Фотки зданий/ПаркФон.jpg') }}" class="img-top-center" alt="ПаркФон.jpg">
+    </div>
 <div class="container" style="margin-top: 50px;">
   <div class="card">
     <img class="img-top" style="border-radius: 20px; margin: 10px; transition: filter 0.3s;" width="250px" height="250px" src="{{ url_for('static', filename='Фотки зданий/Веряжский.png') }}" alt="Парк «Веряжский».png">
@@ -266,5 +298,34 @@
     </div>
   </div>
 </div>
+<footer class="footer">
+        <div class="footer-section">
+            <img class="img-logo-footer" src="{{ url_for('static', filename='Фотки зданий/лого.png') }}" alt="Logo">
+            <p class="description">Городской гид - это сайт, который позволит найти всё в твоём городе!</p>
+            <div class="social-icons">
+                <a href="#"><img src="{{ url_for('static', filename='Фотки зданий/TG.png') }}" alt="Telegram"></a>
+                <a href="#"><img src="{{ url_for('static', filename='Фотки зданий/YT.png') }}" alt="YouTube"></a>
+                <a href="#"><img src="{{ url_for('static', filename='Фотки зданий/vk.png') }}" alt="VK"></a>
+                <a href="#"><img src="{{ url_for('static', filename='Фотки зданий/OK.png') }}" alt="OK"></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Наши контакты</h4>
+            <img src="{{ url_for('static', filename='Фотки зданий/Телефон.png') }}" class="contact-icon" alt="Phone">
+            <a href="tel:+894674736353">894674736353</a><br>
+            <img src="{{ url_for('static', filename='Фотки зданий/телефон.png') }}" class="contact-icon" alt="Phone">
+            <a href="tel:+894674736353">894674736353</a><br>
+            <img src="{{ url_for('static', filename='Фотки зданий/Письмо.png') }}" class="contact-icon" alt="Mail">
+            <a href="mailto:mail@mail.ru">mail@mail.ru</a><br>
+            <p>г. Великий Новгород</p>
+        </div>
+        <div class="footer-section">
+            <h4>Информация</h4>
+            <a href="#">О нас</a><br>
+            <a href="#">Личный Кабинет</a><br>
+            <a href="#">Создатели</a><br>
+            <a href="#">Контакты</a>
+        </div>
+    </footer>
 </body>
 </html>

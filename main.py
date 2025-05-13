@@ -1,9 +1,10 @@
-import re
+import re #twst
 import os
 import sqlite3
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from flask_session import Session
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, jsonify, render_template, request, url_for, session, redirect
 from sqlalchemy import create_engine, text
@@ -12,6 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+admin = Admin(app)
 bcrypt = Bcrypt(app)
 
 # Определение модели для хранения секретов
@@ -990,6 +992,21 @@ def church():
 def hotels():
     print(url_for("hotels"))
     return render_template("hotels.html", title="Отели")
+
+@app.route("/favorites", methods=["GET"])
+def favorites():
+    print(url_for("favorites"))
+    return render_template("favorites.html", title="Избранное")
+
+#Личные страницы
+
+@app.route('/Restaurant/lambs')
+def lambs():
+    return render_template('ЛичныеСтраницы/lambs.html')
+
+@app.route('/Restaurant/test')
+def test():
+    return render_template('ЛичныеСтраницы/test.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
